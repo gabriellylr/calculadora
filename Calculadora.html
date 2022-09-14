@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title>Calculadora</title>
+<link rel="stylesheet" href="cal.css">
+  <script lang="Javascript">
+    var op, n1, n2;
+    function adicionarDigito(digito)
+    {
+        document.cal.txtCalc.value += digito ;
+    }
+    
+    
+  function pegarPrimeiroNumero(operacao) 
+  {
+    n1 = parseFloat(document.cal.txtCalc.value);
+    op = operacao;
+    document.cal.txtCalc.value = "";
+
+  }
+
+  function calcular()
+  {
+    var resultado;
+    n2 = parseFloat(document.cal.txtCalc.value);
+    switch (op)
+    {
+        case 1:
+        {
+            resultado = n1 + n2;
+            break;
+        }
+        case 2:
+        {
+            resultado = n1 - n2;
+            break;
+        }
+        case 3:
+        {
+            resultado = n1 * n2;
+            break;
+        }
+        case 4:
+        {
+            resultado = n1 / n2;
+            break;
+        }
+    }
+    document.cal.txtCalc.value = resultado;
+  }
+
+
+  function limpar()
+  {
+    document.cal.txtCalc.value = "";
+    n1 = 0;
+    n2 = 0;
+    op = 0;
+  }
+   
+  </script>
+  
+    </head>
+    
+    <body>
+        <form name="cal">
+    <div>
+   <h1>Calculadora</h1>
+   <input class="text" type="text" name="txtCalc" readonly>
+  
+
+<div class="text">
+   <input type="button" name="n7" value="7" onclick="adicionarDigito('7')";>
+   <input type="button" name="n8" value="8" onclick="adicionarDigito('8')";>
+   <input type="button" name="n9" value="9" onclick="adicionarDigito('9')";>
+   <input type="button" name="n+" value="+" onclick="pegarPrimeiroNumero(1)";>
+
+</div>
+<div class="text">
+    <input type="button" name="n4" value="4" onclick="adicionarDigito('4')";>
+    <input type="button" name="n5" value="5" onclick="adicionarDigito('5')";>
+    <input type="button" name="n6" value="6" onclick="adicionarDigito('6')";>
+    <input type="button" name="n-" value="-" onclick="pegarPrimeiroNumero(2)";>
+ </div>
+<div class="text">
+    <input type="button" name="n1" value="1" onclick="adicionarDigito('1')";>
+    <input type="button" name="n2" value="2" onclick="adicionarDigito('2')";>
+    <input type="button" name="n3" value="3" onclick="adicionarDigito('3')";>
+    <input type="button" name="n*" value="*" onclick="pegarPrimeiroNumero(3)";>
+ </div>
+ <div class="text">
+<input type="button" name="na" value="Ac" onclick="limpar()";>
+ <input type="button" name="n0" value="0" onclick="adicionarDigito('0')";>
+ <input type="button" name="n," value="," onclick="adicionarDigito(',')";>
+ <input type="button" name="n/" value="/" onclick="pegarPrimeiroNumero(4)";>
+</div>
+<div>
+<input id="igual" type="button" name="n=" value="=" onclick="calcular()";>
+</div>
+</div>
+        </form>
+    </body>
+</html>
